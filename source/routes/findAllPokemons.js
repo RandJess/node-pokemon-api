@@ -11,5 +11,9 @@
                 )
             }
         )
+        .catch(error=>{
+            const messageErreur = "La recupératoin de la liste des pokemons a échouée 😓"
+            res.status(500).json( {messageErreur, data : error})
+        }) 
     })
  }

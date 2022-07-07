@@ -81,6 +81,10 @@ require('./source/routes/findAllPokemons')(app)
 require('./source/routes/findByPk')(app)
 //create new pokemon
 require('./source/routes/createPokemon')(app)
+//modifier
+require('./source/routes/updatePokemon')(app)
+//supprimer
+require('./source/routes/deletePokemon')(app)
 
 // __________👆________👆_______IMPORTATION____________________________________
 // const abc = require('./source/root/findAllPokemons')
@@ -88,5 +92,11 @@ require('./source/routes/createPokemon')(app)
 // require('./source/root/findAllPokemons')(app)
 //👆
 
+
+//Gestion d'erreur 404
+app.use( ({res})=>{
+  const messageErreur = "Qqchose s'est mal passé, essayer de changer l' url"
+  res.status(404).json( {messageErreur} )
+})
 
 app.listen(PORT);
