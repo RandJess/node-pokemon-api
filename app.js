@@ -93,7 +93,7 @@ require('./source/routes/deletePokemon')(app)
 //👆
 
 
-//Gestion d'erreur 404
+//Gestion statut d'erreur 404
 app.use( ({res})=>{
   const messageErreur = "Qqchose s'est mal passé, essayer de changer l' url"
   res.status(404).json( {messageErreur} )

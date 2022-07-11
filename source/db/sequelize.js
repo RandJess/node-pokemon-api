@@ -1,3 +1,6 @@
+// 🌙 On retire des "fonctionnalité " dans sequelize or que ce sont des objets, pour les requperer il faut
+// le "remettre dans un crochet pour designer qu'ils sont des objets javascript" 
+
 const { Sequelize, DataTypes }= require("sequelize")
 const PokemonModel = require("../models/pokemon"); //le model pokemon sequelize
 let { pokemons } = require("./mock-pokemon");
@@ -23,8 +26,8 @@ sequelize.authenticate()
 .catch(error => console.error(`Voilà l'erreur ${error}`))
 
 
+//SYNCHRONISATION A LA BDD :
 // 1model sequelize = 1table BDD
-//SYNCHRONISATION A LA BDD
 const Pokemon = PokemonModel(sequelize, DataTypes)
 const initDb = ()=> {
     sequelize.sync({force : true })
