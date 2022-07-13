@@ -85,6 +85,8 @@ require('./source/routes/createPokemon')(app)
 require('./source/routes/updatePokemon')(app)
 //supprimer
 require('./source/routes/deletePokemon')(app)
+//login
+require('./source/routes/login')(app)
 
 // __________👆________👆_______IMPORTATION____________________________________
 // const abc = require('./source/root/findAllPokemons')

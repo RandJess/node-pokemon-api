@@ -2,8 +2,10 @@
 // le "remettre dans un crochet pour designer qu'ils sont des objets javascript" 
 
 const { Sequelize, DataTypes }= require("sequelize")
-const PokemonModel = require("../models/pokemon"); //le model pokemon sequelize
 let { pokemons } = require("./mock-pokemon");
+const PokemonModel = require("../models/pokemon"); //le model pokemon sequelize
+const UserModel = require("../models/user")
+const bcryptjs = require ("bcryptjs")
 
 
 const sequelize =  new Sequelize( //connexion a la BDD
@@ -29,16 +31,20 @@ sequelize.authenticate()
 //SYNCHRONISATION A LA BDD :
 // 1model sequelize = 1table BDD
 const Pokemon = PokemonModel(sequelize, DataTypes)
+const User = UserModel(sequelize, DataTypes)
+
 const initDb = ()=> {
-    sequelize.sync({force : true })
+    sequelize.sync({force : true })     //.sync() - This creates the table if it doesn't exist (and does nothing if it already exists)
     .then(
     _=>{
         console.log(" Le model a bien été syncronisé avec la BDD 🗯️")
-        //creer une instance pokemon
+        //Faire le lien entre le model    const Pokemon = ${pokemonModel(sequelize, DataTypes)} 
+            //et la liste des mock-pokemon  ${pokemons} .
         pokemons.map(
             pokemon=>{
                 Pokemon.create(
                     {
+                        //mock-pockemon : pokemon.leAny@Model
                         name: pokemon.name,
                         hp: pokemon.hp,
                         cp: pokemon.cp,
@@ -47,9 +53,20 @@ const initDb = ()=> {
                         //.join cree une chaine de caractere en concatenant les elements du tableau
                         types: pokemon.types
                     }
-                ).then( )
+                )
             }
         )
+        // NB: le mdp change a chaque modif qu'on fait .
+        bcryptjs.genSalt(10, (err, salt)=>{
+            bcryptjs.hash("psw1", salt, (err, hash) =>{
+                // Store hash in your password DB.
+                User.create({
+                    username: "User1",
+                    psw: hash
+                })
+            });
+        });
+        
     })
 }
 
