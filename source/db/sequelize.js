@@ -8,19 +8,21 @@ const UserModel = require("../models/user")
 const bcryptjs = require ("bcryptjs")
 
 
-const sequelize =  new Sequelize( //connexion a la BDD
-  "pokemon",  //nom nouveau bdd qu'on crée 
-  "jess", //identifiant
-  "root123", //mdp
-  {
-    host : 'localhost',
-    dialect : 'mariadb',
-    dialectOptions : {
-      timezone : 'Etc/GMT-2' //eviter des affichages d'avertissement
-    },
-    logging : false //eviter des affichages d'avertissement
-  }
-) 
+// const sequelize =  new Sequelize( //connexion a la BDD
+//   "pokemon",  //nom nouveau bdd qu'on crée 
+//   "jess", //identifiant
+//   "root123", //mdp
+//   {
+//     host : 'localhost',
+//     dialect : 'mariadb',
+//     dialectOptions : {
+//       timezone : 'Etc/GMT-2' //eviter des affichages d'avertissement
+//     },
+//     logging : false //eviter des affichages d'avertissement
+//   }
+// )
+
+const sequelize = new Sequelize(process.env.DB_URI)
 
 //Vérifier si la connexion au BDD est réeussi
 sequelize.authenticate()
