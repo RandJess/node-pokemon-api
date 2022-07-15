@@ -4,7 +4,7 @@ let { pokemons } = require("./source/db/mock-pokemon");
 const pokemon = require("./source/models/pokemon")
 const { success, getUniqueId } = require("./helper.js");
 //recup les requettes faites par l'user et le faire console.log
-const morgan = require("morgan");
+// const morgan = require("morgan");
 const favicon = require("serve-favicon");
 const bodyParser = require("body-parser");
 // const fs = require("fs");
@@ -15,7 +15,7 @@ const sequelize= require("./source/db/sequelize")
   res.send('Hello Heroku')
  })
 
- 
+
 sequelize.initDb()
 
 //  en local port = 3000, sur Heroku port aura une valeur dynamique en production
