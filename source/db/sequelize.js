@@ -22,7 +22,7 @@ const dev =  new Sequelize( //connexion a la BDD
 
   }
 )
-module.exports= NODE_ENV=development;
+// module.exports= NODE_ENV=development;
 
 // La BDD doit etree
 const sequelize = process.env.NODE_ENV === 'production' ? new Sequelize(process.env.DB_URI) : dev;
