@@ -24,7 +24,7 @@ const PORT = process.env.PORT || 3000;
 // pokemons = JSON.parse(fs.readFileSync('mock-pokemon.js'));
 
 app
-  .use(favicon(__dirname + "/favicon.ico"))
+  // .use(favicon(__dirname + "/favicon.ico"))
   // .use(morgan("dev"))
   .use(bodyParser.json());
 
