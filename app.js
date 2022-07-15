@@ -11,9 +11,9 @@ const bodyParser = require("body-parser");
 const sequelize= require("./source/db/sequelize")
 
 
- app.get('/', (req, res)=>{
-  res.send('Hello Heroku')
- })
+//  app.get('/', (req, res)=>{
+//   res.send('Hello Heroku')
+//  })
 
 
 sequelize.initDb()

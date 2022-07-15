@@ -14,13 +14,15 @@ const dev =  new Sequelize( //connexion a la BDD
   "root123", //mdp
   {
     host : 'localhost',
-    dialect : 'mariadb',
+    dialect : 'mysql',
     dialectOptions : {
       timezone : 'Etc/GMT-2' //eviter des affichages d'avertissement
     },
     logging : false //eviter des affichages d'avertissement
+
   }
 )
+module.exports= NODE_ENV=development;
 
 // La BDD doit etree
 const sequelize = process.env.NODE_ENV === 'production' ? new Sequelize(process.env.DB_URI) : dev;
