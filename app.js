@@ -10,15 +10,22 @@ const bodyParser = require("body-parser");
 // const fs = require("fs");
 const sequelize= require("./source/db/sequelize")
 
+
+ app.get('/', (req, res)=>{
+  res.send('Hello Heroku')
+ })
+
+ 
 sequelize.initDb()
 
-const PORT = 3000;
+//  en local port = 3000, sur Heroku port aura une valeur dynamique en production
+const PORT = process.env.PORT || 3000;
 
 // pokemons = JSON.parse(fs.readFileSync('mock-pokemon.js'));
 
 app
   .use(favicon(__dirname + "/favicon.ico"))
-  .use(morgan("dev"))
+  // .use(morgan("dev"))
   .use(bodyParser.json());
 
 //A NE PAS EFFACER!!

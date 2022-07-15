@@ -12,7 +12,7 @@ module.exports= (sequelize, DataTypes)=>{
                 msg: "Ce username est déjà prise"
             }
         },
-        psw:{
+        pwd:{
             type: DataTypes.STRING
         }
     })

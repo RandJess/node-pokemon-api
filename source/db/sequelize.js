@@ -56,13 +56,13 @@ const initDb = ()=> {
                 )
             }
         )
-        // NB: le mdp change a chaque modif qu'on fait .
+        // NB: le encryptage mdp change a chaque modif qu'on fait .
+        // To hash a password:
         bcryptjs.genSalt(10, (err, salt)=>{
-            bcryptjs.hash("psw1", salt, (err, hash) =>{
-                // Store hash in your password DB.
+            bcryptjs.hash("pwd1", salt, (err, hash) =>{             
                 User.create({
                     username: "User1",
-                    psw: hash
+                    pwd: hash
                 })
             });
         });
@@ -71,5 +71,5 @@ const initDb = ()=> {
 }
 
 module.exports = {
-    initDb, Pokemon
+    initDb, Pokemon, User
 }

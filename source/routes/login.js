@@ -1,10 +1,11 @@
 const {User} = require("../db/sequelize")
+// const Sequelize = require("sequelize")
 const bcryptjs = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const privateKey = require('../auth/privateKey')
 
 module.exports=(app)=>{
-    app.post('api/login', (req,res)=>{
+    app.post('/api/login', (req,res)=>{
         User.findOne({ where:
         {username: req.body.username}
         })
@@ -15,17 +16,16 @@ module.exports=(app)=>{
             }
 
             // As of bcryptjs 2.4.0, compare returns a promise if callback is omitted:
-            bcryptjs.compare(req.body.pwd, hash).then(isPwdOk => {
+            bcryptjs.compare(req.body.pwd, user.pwd).then(isPwdOk => {
                 if(!isPwdOk){
                     const msg= " MOT DE PASSE INCORRECT"
-                    return res.status(401).json({ msg })
+                    return res.status(404).json({ msg })
                 }
 
                 //JWT
                 const token = jwt.sign(
                     {userId: user.id,}, 
-                    privatekey,
-                    {expireIn: '24h'}
+                    privateKey,
                 )
 
                 const msg= " Authentification réussi 🏁"
