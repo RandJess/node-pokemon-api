@@ -9,6 +9,7 @@ const favicon = require("serve-favicon");
 const bodyParser = require("body-parser");
 // const fs = require("fs");
 const sequelize= require("./source/db/sequelize")
+const cors= require(cors)
 
 
  app.get('/', (req, res)=>{
@@ -24,9 +25,10 @@ const PORT = process.env.PORT || 3000;
 // pokemons = JSON.parse(fs.readFileSync('mock-pokemon.js'));
 
 app
-  // .use(favicon(__dirname + "/favicon.ico"))
+  .use(favicon(__dirname + "/favicon.ico"))
   // .use(morgan("dev"))
-  .use(bodyParser.json());
+  .use(bodyParser.json())
+  .use(cors())
 
 //A NE PAS EFFACER!!
 //Ceci fait exactement comme le morgan (recup les requettes faites par l'user et le faire console.log)
