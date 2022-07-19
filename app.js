@@ -28,7 +28,7 @@ app
   .use(favicon(__dirname + "/favicon.ico"))
   // .use(morgan("dev"))
   .use(bodyParser.json())
-  .use(cors())
+  // .use(cors())
 
 //A NE PAS EFFACER!!
 //Ceci fait exactement comme le morgan (recup les requettes faites par l'user et le faire console.log)
