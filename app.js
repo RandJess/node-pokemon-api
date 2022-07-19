@@ -20,7 +20,7 @@ const cors= require('cors')
 sequelize.initDb()
 
 //  en local port = 3000, sur Heroku port aura une valeur dynamique en production
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 4000;
 
 // pokemons = JSON.parse(fs.readFileSync('mock-pokemon.js'));
 
