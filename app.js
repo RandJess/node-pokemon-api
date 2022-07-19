@@ -20,7 +20,7 @@ const cors= require('cors')
 sequelize.initDb()
 
 //  en local port = 3000, sur Heroku port aura une valeur dynamique en production
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 3000;
 
 // pokemons = JSON.parse(fs.readFileSync('mock-pokemon.js'));
 
@@ -28,7 +28,7 @@ app
   .use(favicon(__dirname + "/favicon.ico"))
   // .use(morgan("dev"))
   .use(bodyParser.json())
-  .use(cors())
+  // .use(cors())
 
 //A NE PAS EFFACER!!
 //Ceci fait exactement comme le morgan (recup les requettes faites par l'user et le faire console.log)
