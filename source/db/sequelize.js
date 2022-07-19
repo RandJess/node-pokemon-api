@@ -15,11 +15,7 @@ const dev =  new Sequelize( //connexion a la BDD
   {
     host : 'localhost',
     dialect : 'mysql',
-    dialectOptions : {
-      timezone : 'Etc/GMT-2' //eviter des affichages d'avertissement
-    },
     logging : false //eviter des affichages d'avertissement
-
   }
 )
 // module.exports= NODE_ENV=development;
