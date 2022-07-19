@@ -9,7 +9,7 @@ const favicon = require("serve-favicon");
 const bodyParser = require("body-parser");
 // const fs = require("fs");
 const sequelize= require("./source/db/sequelize")
-const cors= require('cors')
+// const cors= require('cors')
 
 
  app.get('/', (req, res)=>{
