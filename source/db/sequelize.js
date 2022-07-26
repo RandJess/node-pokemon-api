@@ -18,11 +18,11 @@ const dev =  new Sequelize( //connexion a la BDD
     logging : false //eviter des affichages d'avertissement
   }
 )
-// module.exports= NODE_ENV=development;
 
-// La BDD doit etree
+// ceci est equivaut au dessus
 const sequelize = process.env.NODE_ENV === 'production' ? new Sequelize(process.env.DB_URI) : dev;
 
+//dev.authenticate
 //Vérifier si la connexion au BDD est réeussi
 sequelize.authenticate()
 .then(_ => console.log('🍑 Connexion au Bdd établie'))

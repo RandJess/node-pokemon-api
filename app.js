@@ -9,7 +9,7 @@ const favicon = require("serve-favicon");
 const bodyParser = require("body-parser");
 // const fs = require("fs");
 const sequelize= require("./source/db/sequelize")
-// const cors= require('cors')
+const cors= require('cors')
 
 
  app.get('/', (req, res)=>{
@@ -28,7 +28,7 @@ app
   .use(favicon(__dirname + "/favicon.ico"))
   // .use(morgan("dev"))
   .use(bodyParser.json())
-  // .use(cors())
+  .use(cors())
 
 //A NE PAS EFFACER!!
 //Ceci fait exactement comme le morgan (recup les requettes faites par l'user et le faire console.log)
